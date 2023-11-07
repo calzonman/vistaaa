@@ -1,0 +1,7 @@
+{
+     "/vista": {
+       "target": "http://localhost:3051",
+       "secure": false
+     }
+      
+}
