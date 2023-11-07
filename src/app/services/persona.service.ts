@@ -10,7 +10,7 @@ import { Persona } from '../interfaces/Persona';
 })
 export class PersonaService {
 
-  BASE_URL: string = 'http://localhost:3051';
+  BASE_URL: string = 'https://backendprofe-qucd72253a-uc.a.run.app';
 
   constructor(private http: HttpClient) { }
 
