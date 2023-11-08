@@ -17,7 +17,7 @@ RUN npm run build
 FROM nginx:latest
 
 # Copia los archivos generados desde la etapa de compilación a la etapa de producción
-COPY --from=build /usr/local/app/dist/disp /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/vista /usr/share/nginx/html
 
 # Copia la configuración de nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
