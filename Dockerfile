@@ -22,4 +22,4 @@ COPY --from=build /usr/local/app/dist/disp /usr/share/nginx/html
 COPY /nginx.conf  /etc/nginx/conf.d/default.conf
 
 # Expose port 80
-EXPOSE 80
+EXPOSE 81
