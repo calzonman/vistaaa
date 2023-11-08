@@ -1,25 +1,27 @@
+# Etapa de compilación
 FROM node:16 as build
 
-# Set the working directory
+# Establece el directorio de trabajo
 WORKDIR /usr/local/app
 
-# Add the source code to app
+# Copia el código fuente a la etapa de compilación
 COPY ./ /usr/local/app/
 
-# Install all the dependencies
+# Instala las dependencias
 RUN npm install
 
-# Generate the build of the application
+# Genera la construcción de la aplicación
 RUN npm run build
 
-# Use official nginx image as the base image
+# Etapa de producción
 FROM nginx:latest
 
-# Copy the build output to replace the default nginx contents.
-COPY --from=build /usr/local/app/dist/vistaaa /usr/share/nginx/html
+# Copia los archivos generados desde la etapa de compilación a la etapa de producción
+COPY --from=build /usr/local/app/dist/disp /usr/share/nginx/html
 
-# Config
-COPY /nginx.conf  /etc/nginx/conf.d/default.conf
+# Copia la configuración de nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80
-EXPOSE 81
+# Exponer el puerto 80 (por defecto) para la aplicación nginx
+EXPOSE 80
+
